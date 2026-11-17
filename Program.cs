@@ -53,23 +53,147 @@
 
 
 
-int[] groupIds = { 101, 104, 107, 104, 110 };
-bool hasDuplicates = false;
+// int[] groupIds = { 101, 104, 107, 104, 110 };
+// bool hasDuplicates = false;
 
-for (int i = 0; i < groupIds.Length; i++)
+// for (int i = 0; i < groupIds.Length; i++)
+// {
+//     for (int j = i + 1; j < groupIds.Length; j++)
+//     {
+//         if (groupIds[i] == groupIds[j])
+//         {
+//             Console.WriteLine($"Совпали номера зачётки: {groupIds[i]} и {groupIds[j]}");            
+//             hasDuplicates = true;
+//             break;
+//         }
+//     }
+// }
+
+// if (!hasDuplicates)
+// {
+//     Console.WriteLine("Все номера уникальны");
+// }
+
+
+
+// int days = 5;
+// int lessonsPerDay = 6;
+// bool found = false;
+
+// for (int day = 1; day <= days && !found; day++)
+// {
+//     for (int lesson = 1; lesson <= lessonsPerDay; lesson++)
+//     {
+//         bool isFree = (day == 7 && lesson == 4);
+//         if (isFree)
+//         {
+//             Console.WriteLine($"Свободный слот: день {day}, урок {lesson}");
+//             found = true;
+//             break;
+//         }
+//     }
+// }
+
+// if (!found)
+// {
+//     Console.WriteLine("Свободных слотов нет");
+// }
+
+
+// //Задача А
+
+// int[] num = { 2, 4, 8, 1, 77, 32, 9 };
+// int target = 2;
+// int index = 0;
+// bool flag = false;
+
+// foreach(int n in num)
+// {
+//     if (n == target)
+//     {
+//         flag = true;
+//         break;
+//     }
+//     index += 1;
+// }
+
+// Console.WriteLine(flag ? $"Индекс найден: {index}" : "Его нет");
+
+
+
+// // //Задача Г
+// int[] list = { 5, 55, 1, 98, 2, 6, 3, 6 };
+
+// for(int i = 0; i < list.Length; i++)
+// {
+//     for(int j = i + 1; j < list.Length; j++)
+//     {
+//         if(list[i] == list[j])
+//         {
+//             Console.WriteLine($"Повторяющийся элемент: {list[i]}");                     
+//             break;
+//         }
+//     }
+// }
+
+
+// //Индивидуальный вариант ★★
+// Console.Write("Введите свою фамилию: ");
+// string surname = Console.ReadLine()!.Trim();
+// if (string.IsNullOrEmpty(surname)) {
+//     Console.WriteLine("Фамилия не введена. Завершение работы.");
+//     return;
+// }
+// Random rnd = new(surname.GetHashCode() + DateTime.Now.DayOfYear);
+// var assigned = Enumerable.Range(1, 10)
+//     .OrderBy(_ => rnd.Next())
+//     .Take(2)
+//     .OrderBy(x => x)
+//     .ToList();
+// Console.WriteLine($"Задачи: №{assigned[0]} и №{assigned[1]}");
+
+
+// //VARIANT 1
+// int[] L = { 5, 8, 1, -79, 4, 456, 9, -4 };
+// bool flag = false;
+// int index = 0;
+// foreach (int num in L)
+// {
+//     if (num < 0)
+//     {
+//         flag = true;
+//         break;
+//     }
+//     index += 1;
+// }
+// if (flag)
+// {
+//     Console.WriteLine($"Индекс отрицательного числа: {index}");
+// }
+// else
+// {
+//     Console.WriteLine("Не найдено");
+// }
+
+
+
+//VARIANT 9
+
+string word = "довод";
+bool palindrom = true;
+for (int i = 0; i < word.Length / 2; i++)
 {
-    for (int j = i + 1; j < groupIds.Length; j++)
+    if (word[i] != word[word.Length - 1 - i])
     {
-        if (groupIds[i] == groupIds[j])
-        {
-            Console.WriteLine($"Совпали номера зачётки: {groupIds[i]} и {groupIds[j]}");            
-            hasDuplicates = true;
-            break;
-        }
+        palindrom = false;
+        break;
     }
 }
-
-if (!hasDuplicates)
+if (palindrom)
 {
-    Console.WriteLine("Все номера уникальны");
+    Console.WriteLine("Это слово явл. палиндромом.");
+}
+else
+{
+    Console.WriteLine("Не явл. палиндромом");
 }
